@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+
+{% block titulo %}
+    Productos
+{% endblock %}
+
+{% block contenido %}
+    <h1>Listado de productos</h1>
+    <a href="{{ url_for('crear_producto') }}">Crear</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio de Venta</th>
+                <th>Precio de Compra</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+                <tr>
+                    <td>{{ producto[0] }}</td>
+                    <td>{{ producto[1] }}</td>
+                    <td>{{ producto[2] }}</td>
+                    <td>{{ producto[3] }}</td>
+                    <td>{{ producto[4] }}</td>
+                    <td>
+                        {% if producto[5] == 1 %}
+                            Activo
+                        {%else%}
+                            Inactivo
+                        {%endif%}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
