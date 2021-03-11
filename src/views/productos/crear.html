@@ -5,30 +5,77 @@
 {% endblock %}
 
 {% block contenido %}
-    <h1>Crear producto</h1>
-    <a href="{{ url_for('productos') }}">Volver</a>
-
+    <h1 class="text-center">Crear producto</h1>
+    <a href="{{ url_for('productos', id='null') }}" class="p-2 mb-1 bg-info text-white">Volver</a>
+    <h1></h1>
     <form action="{{ url_for('crear_producto') }}" method="POST">
         <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre">
+            <input type="text" required class="form-control" id="nombre" name="nombre">
         </div>
         <div class="form-group">
             <label for="descripcion">Descripcion</label>
-            <input type="text" class="form-control" id="descripcion" name="descripcion">
+            <textarea rows="4" required class="form-control" id="descripcion" name="descripcion"></textarea>
         </div>
         <div class="form-group">
             <label for="precio_vta">Precio de Venta</label>
-            <input type="text" class="form-control" id="precio_vta" name="precio_vta">
+            <input type="text" required class="form-control" id="precio_vta" name="precio_vta">
         </div>
         <div class="form-group">
             <label for="precio_compra">Precio de Compra</label>
-            <input type="text" class="form-control" id="precio_compra" name="precio_compra">
+            <input type="text" required class="form-control" id="precio_compra" name="precio_compra">
         </div>
 
-        <label for="estado">Estado:   </label>
-        <h7>Activo  </h7><input type="radio" id="a" name="estado" value="a">
-        <h5></h5>
-        <button type="submit">Guardar</button>
+        <div class="form-group">
+            <label for="ganancia">Ganancia</label>
+            <input type="text" required class="form-control" id="ganancia" name="ganancia">
+        </div>
+
+        <div class="col-sm row align-items-end">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="estado" value="a" id="a">
+                <label class="form-check-label" for="activo">Activo</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio"  name="estado" value="i" id="i">
+                <label class="form-check-label" for="inactivo">Inactivo</label>
+            </div>
+        </div>
+    <center>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </center>
+        
     </form>
+
+    <script>
+        let inputPrecioCompra = document.querySelector('#precio_compra')
+        let inputPrecioVenta = document.querySelector('#precio_vta')
+        let inputGanancia = document.getElementById('ganancia')
+        
+        inputPrecioCompra.addEventListener('change', cambioPrecioCompra)
+        function cambioPrecioCompra(e){
+            console.log('Cambiando precio compra')
+        }
+    
+        inputPrecioVenta.addEventListener('change', cambioPrecioVenta)
+        function cambioPrecioVenta(e){
+            // Esta cambiando el precio venta
+            // ganancia = (precio_venta / precio_compra) / 100
+            let precio_venta = parseInt(inputPrecioVenta.value)
+            let precio_compra = parseInt(inputPrecioCompra.value)
+            let ganancia = ((precio_venta - precio_compra)/ precio_compra) * 100
+            inputGanancia.value = ganancia
+        }
+    
+        inputGanancia.addEventListener('change', cambioGanancia)
+        function cambioGanancia(e){
+            let precio_compra = parseInt(inputPrecioCompra.value)
+            let ganancia = parseInt(inputGanancia.value)
+            let precio_venta = (precio_compra * (ganancia/100)) + precio_compra
+            inputPrecioVenta.value = precio_venta
+        }
+    
+    </script>
+
 {% endblock %}

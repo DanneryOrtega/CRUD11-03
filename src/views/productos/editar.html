@@ -5,4 +5,25 @@
 {% endblock %}
 
 {% block contenido %}
-    <h1>Edición de productos</h1>
+    <h1 class="text-center">Edición del producto</h1>
+//-----------------------------------------------------------
+    {% for producto in productos %}
+            {{ producto[0] }}
+            {{ producto[1] }}
+            {{ producto[2] }}
+            {{ producto[3] }}
+            {{ producto[4] }}
+            {{ producto[5] }}
+            {% if producto[6] == 1 %}
+                    Activo
+            {%else%}
+                    Inactivo
+            {%endif%}          
+    {% endfor %}
+#-------------------------------------------
+    <center>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </center>
+
+
+{% endblock %}

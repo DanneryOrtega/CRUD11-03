@@ -5,5 +5,21 @@
 {% endblock %}
 
 {% block contenido %}
-    <h1>Saludos desde una template de Flask</h1>
+<center>
+    <h1>*********************</h1>
+    <h1>*****Bienvenido******</h1>
+    <h1>*********************</h1>
+    <h3>
+    <a href="{{ url_for('productos', id='null') }}" class="text-warning">Listado de Productos</a>
+    </h3>
+
+</center>
+
+
+<div class="p-3 mb-2 bg-info text-white text-center">
+    <h4>Elaborado Por:</h4>
+    <h4>Dannery Nayeli Ortega Quijano</h4>
+
+</div>
+
 {% endblock %}

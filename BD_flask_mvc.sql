@@ -21,21 +21,26 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) NOT NULL,
   `descripcion` varchar(150) NOT NULL,
-  `precio_venta` decimal(6,2) DEFAULT NULL,
-  `precio_compra` decimal(6,2) DEFAULT NULL,
+  `precio_venta` float(8,2) DEFAULT NULL,
+  `precio_compra` float(8,2) DEFAULT NULL,
+  `ganancia` float(8,2) DEFAULT NULL,
   `estado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla flask_mvc.productos: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla flask_mvc.productos: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_venta`, `precio_compra`, `estado`) VALUES
-	(1, 'Gaseosa', '', NULL, NULL, NULL),
-	(2, 'firulais', '5000 CABALLOS DE FUERZA', 1500.00, 1200.00, 0),
-	(3, 'ACER NITRO 5', 'portatil gamer', 200.00, 1200.00, 1),
-	(4, 'firulais', 'portatil gamer', 200.00, 100.00, 1),
-	(5, 'Mecato', 'portatil gamer', 1500.00, 100.00, 0),
-	(6, 'Margarita', 'Papitas', 1200.00, 1000.00, 0);
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio_venta`, `precio_compra`, `ganancia`, `estado`) VALUES
+	(1, 'Gaseosa', '', NULL, NULL, 0.00, NULL),
+	(2, 'firulais', '5000 CABALLOS DE FUERZA', 1500.00, 1200.00, 0.00, 0),
+	(3, 'ACER NITRO 5', 'portatil gamer', 200.00, 1200.00, 0.00, 1),
+	(4, 'firulais', 'portatil gamer', 200.00, 100.00, 0.00, 1),
+	(5, 'Mecato', 'portatil gamer', 1500.00, 100.00, 0.00, 0),
+	(6, 'Margarita', 'Papitas', 1200.00, 1000.00, 0.00, 0),
+	(7, 'Postobon Uva', 'Gaseosa 1.5L', 2500.00, 2300.00, 0.00, 1),
+	(8, 'DNOQ', 'd', 1200.00, 1000.00, 0.00, 1),
+	(9, 'd', 'd', 1500.00, 1200.00, 0.00, 0),
+	(10, 'Papel Higiénico Scott', 'Paquete por 4 rollos', 0.00, 4000.00, 0.00, 1);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

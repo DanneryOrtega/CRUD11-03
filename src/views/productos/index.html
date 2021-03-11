@@ -5,9 +5,15 @@
 {% endblock %}
 
 {% block contenido %}
-    <h1>Listado de productos</h1>
-    <a href="{{ url_for('crear_producto') }}">Crear</a>
-    <table class="table table-bordered ">
+    <h1 class="text-center">Listado de productos</h1>
+    <button onclick="location.href='{{ url_for('index')}}'" class="btn btn-outline-dark">
+        Inicio
+    </button>
+    <button onclick="location.href='{{ url_for('crear_producto')}}'" class="btn btn-outline-dark">
+        Nuevo Producto
+    </button>
+    <h1></h1>
+    <table class="table table-bordered">
         <thead class="table-primary">
             <tr>
                 <th>ID</th>
@@ -15,24 +21,28 @@
                 <th>Descripcion</th>
                 <th>Precio de Venta</th>
                 <th>Precio de Compra</th>
+                <th>Ganancia</th>
                 <th>Estado</th>
+                <th>Operación</th>
             </tr>
         </thead>
         <tbody>
             {% for producto in productos %}
                 <tr>
-                    <td>{{ producto[0] }}</td>
+                    <th>{{ producto[0] }}</th>
                     <td>{{ producto[1] }}</td>
                     <td>{{ producto[2] }}</td>
                     <td>{{ producto[3] }}</td>
                     <td>{{ producto[4] }}</td>
+                    <td>{{ producto[5] }}</td>
                     <td>
-                        {% if producto[5] == 1 %}
+                        {% if producto[6] == 1 %}
                             Activo
                         {%else%}
                             Inactivo
                         {%endif%}
                     </td>
+                    <td><a href="/productos/editar/{{producto[0]}}" class="text-success">Editar</a></td>
                 </tr>
             {% endfor %}
         </tbody>
