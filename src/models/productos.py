@@ -1,4 +1,5 @@
-from src.config.db import DB
+from src.config.globals as globals
+#from src.config.db import DB
 
 class ProductosModel():
     def traerTodos(self):

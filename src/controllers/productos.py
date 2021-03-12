@@ -53,7 +53,12 @@ def editar_producto(id):
     return render_template('productos/index.html',productos=productos)#
     #productosModel.crear(databproductos)
     #productosModel.editar(databproductos)
-
+@app.route('/instalacion', methods=['GET', 'POST'])
+def instalacion():
+    if request.method == 'GET':
+        createDB()
+        instalarDB()
+        return render_template('instalacion.html')
 
     
     

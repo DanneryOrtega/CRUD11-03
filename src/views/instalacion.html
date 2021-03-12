@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO DE BASE DE DATOS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="border border-dark container bg-warning rounded-lg">
+    <form action="{{ url_for('instalacion') }}" method="post">
+        <h1 class="h2 text-center">PROCESO DE CONEXION DE BASE DE DATOS</h1>
+
+        <div class="form-group">
+            <label for="Db">NOMBRE DE LA BASE:</label>
+            <input type="text" class="form-control" id="Db" name="db">
+        </div>
+
+        <div class="form-group">
+            <label for="User">USUARIO:</label>
+            <input type="text" class="form-control" id="User" name="user">
+        </div>
+
+        <div class="form-group">
+            <label for="Password">CONTRASEÑA:</label>
+            <input type="text" class="form-control" id="Password" name="password">
+        </div>
+
+        <div class="form-group">
+            <label for="Host">SERVIDOR:</label>
+            <input type="text" required class="form-control" id="Host" name="host">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary btn-block border-dark">CONECTAR</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
