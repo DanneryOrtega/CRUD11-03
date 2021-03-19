@@ -6,12 +6,11 @@
 
 {% block contenido %}
     <h1 class="text-center">Listado de productos</h1>
-    <button onclick="location.href='{{ url_for('index')}}'" class="btn btn-outline-dark">
-        Inicio
-    </button>
-    <button onclick="location.href='{{ url_for('crear_producto')}}'" class="btn btn-outline-dark">
-        Nuevo Producto
-    </button>
+    <a href="{{ url_for('index')}}">Inicio</a>
+        
+
+    <a href="{{ url_for('crear_producto') }}">Nuevo Producto</a>
+
     <h1></h1>
     <table class="table table-bordered">
         <thead class="table-primary">
@@ -42,7 +41,7 @@
                             Inactivo
                         {%endif%}
                     </td>
-                    <td><a href="/productos/editar/{{producto[0]}}" class="text-success">Editar</a></td>
+                    <td><a href="{{url_for('editar_registro', id = producto[0])}}" class="text-success">Editar</a></td>
                 </tr>
             {% endfor %}
         </tbody>

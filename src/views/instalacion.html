@@ -8,33 +8,42 @@
 </head>
 <body>
 <div class="border border-dark container bg-warning rounded-lg">
-    <form action="{{ url_for('instalacion') }}" method="post">
+    <form action="{{ url_for('setting') }}" method="post">
         <h1 class="h2 text-center">PROCESO DE CONEXION DE BASE DE DATOS</h1>
 
-        <div class="form-group">
-            <label for="Db">NOMBRE DE LA BASE:</label>
-            <input type="text" class="form-control" id="Db" name="db">
+        <div class="mb-3">
+            <label for="Db" class="form-label">NOMBRE DE LA BASE:</label>
+            <input type="text" class="form-control" id="Db" aria-describedby="emailHelp" name="Db">
         </div>
 
-        <div class="form-group">
-            <label for="User">USUARIO:</label>
-            <input type="text" class="form-control" id="User" name="user">
+        <div class="mb-3">
+            <label for="User" class="form-label">USUARIO:</label>
+            <input type="text" class="form-control" id="User" aria-describedby="emailHelp" name="User">
         </div>
 
-        <div class="form-group">
-            <label for="Password">CONTRASEÑA:</label>
-            <input type="text" class="form-control" id="Password" name="password">
+        <div class="mb-3">
+            <label for="Password" class="form-label">CONTRASEÑA:</label>
+            <input type="password" class="form-control" id="Password" name="Password">
         </div>
 
-        <div class="form-group">
-            <label for="Host">SERVIDOR:</label>
-            <input type="text" required class="form-control" id="Host" name="host">
+        <div class="mb-3">
+            <label for="Host" class="form-label">SERVIDOR:</label>
+            <input type="text" class="form-control" id="Host" aria-describedby="emailHelp" name="Host">
+        </div>
+        
+        <div class="mb-3">
+            <label for="Port" class="form-label">Port:</label>
+            <input type="text" class="form-control" id="Port" aria-describedby="emailHelp" name="Port">
         </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-lg btn-primary btn-block border-dark">CONECTAR</button>
         </div>
+
     </form>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
 </body>
 </html>

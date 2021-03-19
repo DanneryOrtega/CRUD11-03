@@ -6,24 +6,53 @@
 
 {% block contenido %}
     <h1 class="text-center">Edición del producto</h1>
-//-----------------------------------------------------------
-    {% for producto in productos %}
-            {{ producto[0] }}
-            {{ producto[1] }}
-            {{ producto[2] }}
-            {{ producto[3] }}
-            {{ producto[4] }}
-            {{ producto[5] }}
-            {% if producto[6] == 1 %}
-                    Activo
-            {%else%}
-                    Inactivo
-            {%endif%}          
-    {% endfor %}
-#-------------------------------------------
+    <a href="{{ url_for('productos') }}" class="p-2 mb-1 bg-info text-white">Volver</a>
+
+<h1></h1>
+<form action="{{ url_for('editar_producto', id=producto[0])}}" method="POST">
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" required class="form-control" id="nombre" name="nombre" value="{{producto[1]}}">
+    </div>
+
+    <div class="form-group">
+        <label for="descripcion">Descripcion</label>
+        <textarea rows="4" required class="form-control" id="descripcion" name="descripcion">{{producto[2]}}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="precio_vta">Precio de Venta</label>
+        <input type="text" required class="form-control" id="precio_vta" name="precio_vta" value="{{producto[3]}}">
+    </div>
+    <div class="form-group">
+        <label for="precio_compra">Precio de Compra</label>
+        <input type="text" required class="form-control" id="precio_compra" name="precio_compra" value="{{producto[4]}}">
+    </div>
+
+    <div class="form-group">
+        <label for="ganancia">Ganancia</label>
+        <input type="text" required class="form-control" id="ganancia" name="ganancia" value="{{producto[5]}}">
+    </div>
+
+    <div class="col-sm row align-items-end">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="estado" value="a" id="a"  
+            {% if producto[6] == 1 %} checked {% endif %}  >
+            <label class="form-check-label" for="activo">Activo</label>
+            
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio"  name="estado" value="i" id="i"
+            {% if producto[6] == 0 %} checked {% endif %}  >
+            <label class="form-check-label" for="inactivo">Inactivo</label>
+        </div>
+    </div>
+
+
     <center>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </center>
-
+</form>
 
 {% endblock %}

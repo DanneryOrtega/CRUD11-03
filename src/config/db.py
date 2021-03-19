@@ -4,7 +4,7 @@ import json
 import src.config.globals as globals
 
 CONEXION_PATH = path.abspath('src/config/conexion.json')
-SQL_PATH = path.abspath('db.sql')
+SQL_PATH = path.abspath('BD_flask_mvc.sql')
 
 def instalarDB():
     file_sql = open(SQL_PATH, 'r')
@@ -34,7 +34,7 @@ def createDB():
     else:
         globals.DB = False
 
-createDB()
+#createDB()
 
 #config = {
 #    'host': 'localhost',

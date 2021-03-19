@@ -6,7 +6,7 @@
 
 {% block contenido %}
     <h1 class="text-center">Crear producto</h1>
-    <a href="{{ url_for('productos', id='null') }}" class="p-2 mb-1 bg-info text-white">Volver</a>
+    <a href="{{ url_for('productos') }}" class="p-2 mb-1 bg-info text-white">Volver</a>
     <h1></h1>
     <form action="{{ url_for('crear_producto') }}" method="POST">
         <div class="form-group">
